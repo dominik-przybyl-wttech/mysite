@@ -1,0 +1,12 @@
+# Creates the same groups as created in the IMS.
+# Groups created on the IMS side are synced to the AEM only if user which is member of this group has logged in to AEM.
+# To avoid applying permissions to not yet created groups we are creating them on the AEM side
+# and assigning them externalId which links IMS groups with AEM groups
+- group_config:
+
+    - "${projectNameCapitalLetter} Users IMS ACL":
+
+        - name: "${projectNameCapitalLetter} Users IMS (ACL Tool)"
+          isMemberOf: dam-users, ${projectName}-fragment-${projectName}-all-acl${aclRevision}, ${projectName}-fragment-basic-deny-acl
+          path: ${projectName}
+          externalId: "${projectNameCapitalLetter} Users IMS ACL;ims"

@@ -1,0 +1,20 @@
+# This configuration contains the global permission fragments
+
+- group_config:
+
+    - ${projectName}-fragment-basic-deny-acl:
+
+        - name:
+          isMemberOf:
+          path: ${projectName}
+
+- ace_config:
+
+    - ${projectName}-fragment-basic-deny-acl:
+
+        # Deny access to Tools -> Security -> Permissions
+        - path: /libs/cq/core/content/nav/tools/security/permissions
+          permission: deny
+          actions: read
+          privileges:
+          repGlob:
