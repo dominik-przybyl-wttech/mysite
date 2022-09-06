@@ -1,0 +1,35 @@
+- group_config:
+
+    - ${projectName}-system-user-group-acl:
+
+        - name: '${projectNameCapitalLetter} Base System Users (ACL Tool)'
+          memberOf:
+          path: ${projectName}
+
+- user_config:
+
+    - ${projectName}-system-user-acl:
+
+        - name: "${projectNameCapitalLetter} System User (ACL Tool)"
+          memberOf: ${projectName}-system-user-group-acl
+          path: /home/users/system/${projectName}
+          isSystemUser: true
+
+- ace_config:
+
+    - ${projectName}-system-user-group-acl:
+
+        - path: /content/${projectName}
+          permission: allow
+          actions: read, create, delete, modify, replicate
+          privileges:
+
+        - path: /conf/global/settings
+          permission: allow
+          actions: read
+          privileges:
+
+        - path: /conf/${projectName}
+          permission: allow
+          actions: read
+          privileges:

@@ -1,0 +1,5 @@
+- global_config:
+    vars:
+      - DEF projectName="mysite"
+      - DEF projectNameCapitalLetter="MySite"
+      - DEF aclRevision=""

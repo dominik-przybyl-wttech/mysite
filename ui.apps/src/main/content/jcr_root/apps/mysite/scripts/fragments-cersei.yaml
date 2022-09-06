@@ -1,0 +1,35 @@
+- group_config:
+
+    - ${projectName}-fragment-${projectName}-all-acl${aclRevision}:
+
+        - name:
+          isMemberOf:
+          path: ${projectName}
+
+- ace_config:
+
+    - ${projectName}-fragment-${projectName}-all-acl${aclRevision}:
+
+        - path: /apps/${projectName}
+          permission: allow
+          actions: read, create, delete, modify, replicate
+          privileges:
+          repGlob:
+
+        - path: /apps/dam
+          permission: allow
+          actions: read, create, delete, modify, replicate
+          privileges:
+          repGlob:
+
+        - path: /content/${projectName}
+          permission: allow
+          actions: read, create, delete, modify, replicate
+          privileges:
+          repGlob:
+
+        - path: /content/dam
+          permission: allow
+          actions: read, create, delete, modify, replicate
+          privileges:
+          repGlob:
